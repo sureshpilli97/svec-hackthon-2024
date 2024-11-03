@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 app.get('/get_team_members', async (req, res) => {
 
     const { team_name } = req.query;
-    const query = `SELECT * FROM TEAMS WHERE team_name = ?`;
+    const query = `SELECT * FROM teams WHERE team_name = ?`;
 
     try {
         const db = await database.connectToDB();
@@ -40,7 +40,7 @@ app.get('/get_team_members', async (req, res) => {
 
 app.post('/insert_rollno', async (req, res) => {
     const { team } = req.body;
-    const updateQuery = `UPDATE TEAMS SET roll_no = ?, is_updated = 1 WHERE candidate_email = ?`;
+    const updateQuery = `UPDATE teams SET roll_no = ?, is_updated = 1 WHERE candidate_email = ?`;
 
     try {
         const db = await database.connectToDB();
